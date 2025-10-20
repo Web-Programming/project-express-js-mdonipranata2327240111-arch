@@ -1,6 +1,6 @@
-const User = require('../models/users');
+const User = require('../../models/users');
 
-// 🟢 CREATE User baru (Registration)
+// CREATE User baru (Registration)
 exports.createUser = async (req, res) => {
   try {
     const user = new User(req.body);
@@ -14,7 +14,7 @@ exports.createUser = async (req, res) => {
   }
 };
 
-// 🔵 READ semua user (Hanya untuk Admin)
+// READ semua user (Hanya untuk Admin)
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -24,7 +24,7 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-// 🟣 READ satu user berdasarkan ID
+// READ satu user berdasarkan ID
 exports.getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -37,7 +37,7 @@ exports.getUserById = async (req, res) => {
   }
 };
 
-// 🟠 UPDATE user berdasarkan ID
+//  UPDATE user berdasarkan ID
 exports.updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(
@@ -57,7 +57,7 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-// 🔴 DELETE user berdasarkan ID
+//  DELETE user berdasarkan ID
 exports.deleteUser = async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
